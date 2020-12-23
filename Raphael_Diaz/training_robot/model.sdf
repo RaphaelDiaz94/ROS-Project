@@ -1,0 +1,368 @@
+<?xml version='1.0'?>
+<sdf version='1.4'>
+  <model name="my_robot">
+
+
+   <static>false</static>
+    <link name='chassis'>
+            <pose>0 0 .1 0 0 0</pose>
+
+            <collision name='collision'>
+              <geometry>
+                <box>
+                  <size>.8 .4 .1</size>
+                </box>
+              </geometry>
+            </collision>
+
+            <visual name='visual'>
+              <geometry>
+                <box>
+                  <size>.8 .4 .1</size>
+                </box>
+              </geometry>
+            </visual>
+          </link>
+
+    <link name="left_wheel">
+        <pose>0.30 0.225 0.1 0 1.5707 1.5707</pose>
+        <collision name="collision">
+          <geometry>
+            <cylinder>
+              <radius>.1</radius>
+              <length>.05</length>
+            </cylinder>
+          </geometry>
+        </collision>
+        <visual name="visual">
+          <geometry>
+            <cylinder>
+              <radius>.1</radius>
+              <length>.05</length>
+            </cylinder>
+          </geometry>
+        </visual>
+      </link>
+
+
+
+
+
+   <link name="right_wheel">
+        <pose>0.30 -0.225 0.1 0 1.5707 1.5707</pose>
+        <collision name="collision">
+          <geometry>
+            <cylinder>
+              <radius>.1</radius>
+              <length>.05</length>
+            </cylinder>
+          </geometry>
+        </collision>
+        <visual name="visual">
+          <geometry>
+            <cylinder>
+              <radius>.1</radius>
+              <length>.05</length>
+            </cylinder>
+          </geometry>
+        </visual>
+      </link>
+
+
+
+
+
+
+  <link name="right_back_wheel">
+        <pose>-0.30 -0.225 0.1 0 1.5707 1.5707</pose>
+        <collision name="collision">
+          <geometry>
+            <cylinder>
+              <radius>.1</radius>
+              <length>.05</length>
+            </cylinder>
+          </geometry>
+        </collision>
+        <visual name="visual">
+          <geometry>
+            <cylinder>
+              <radius>.1</radius>
+              <length>.05</length>
+            </cylinder>
+          </geometry>
+        </visual>
+      </link>
+
+
+
+  <link name="left_back_wheel">
+        <pose>-0.30 0.225 0.1 0 1.5707 1.5707</pose>
+        <collision name="collision">
+          <geometry>
+            <cylinder>
+              <radius>.1</radius>
+              <length>.05</length>
+            </cylinder>
+          </geometry>
+        </collision>
+        <visual name="visual">
+          <geometry>
+            <cylinder>
+              <radius>.1</radius>
+              <length>.05</length>
+            </cylinder>
+          </geometry>
+        </visual>
+      </link>
+
+
+
+
+     <joint type="revolute" name="left_wheel_hinge">
+        <pose>0 0 -0.03 0 0 0</pose>
+        <child>left_wheel</child>
+        <parent>chassis</parent>
+        <axis>
+          <xyz>0 1 0</xyz>
+        </axis>
+      </joint>
+
+      <joint type="revolute" name="right_wheel_hinge">
+        <pose>0 0 0.03 0 0 0</pose>
+        <child>right_wheel</child>
+        <parent>chassis</parent>
+        <axis>
+          <xyz>0 1 0</xyz>
+        </axis>
+      </joint>
+
+
+      <joint type="revolute" name="left_back_wheel_hinge">
+        <pose>0 0 -0.03 0 0 0</pose>
+        <child>left_back_wheel</child>
+        <parent>chassis</parent>
+        <axis>
+          <xyz>0 1 0</xyz>
+        </axis>
+      </joint>
+
+
+      <joint type="revolute" name="right_back_wheel_hinge">
+        <pose>0 0 0.03 0 0 0</pose>
+        <child>right_back_wheel</child>
+        <parent>chassis</parent>
+        <axis>
+          <xyz>0 1 0</xyz>
+        </axis>
+      </joint>
+
+
+
+      <link name='arm1'>
+            <pose>0 0.225 0.33 0 1.6 0</pose>
+
+            <collision name='collision'>
+              <geometry>
+                <box>
+                  <size>.4 .05 .05</size>
+                </box>
+              </geometry>
+            </collision>
+
+            <visual name='visual'>
+              <geometry>
+                <box>
+                  <size>.4 .05 .05</size>
+                </box>
+              </geometry>
+            </visual>
+          </link>
+
+
+      <joint type="revolute" name="arm1_hinge">
+         <pose>0.2 -0.02 0 0 0 0</pose>
+         <child>arm1</child>
+         <parent>chassis</parent>
+         <axis>
+          <xyz>0 1 0</xyz>
+         </axis>
+      </joint>
+
+
+
+      <link name='arm2'>
+            <pose>0 0.275 0.61 0 1.6 0</pose>
+
+            <collision name='collision'>
+              <geometry>
+                <box>
+                  <size>.2 .05 .05</size>
+                </box>
+              </geometry>
+            </collision>
+
+            <visual name='visual'>
+              <geometry>
+                <box>
+                  <size>.2 .05 .05</size>
+                </box>
+              </geometry>
+            </visual>
+          </link>
+
+
+      <joint type="revolute" name="arm2_hinge">
+         <pose>0.1 -0.02 0 0 0 0</pose>
+         <child>arm2</child>
+         <parent>chassis</parent>
+         <axis>
+          <xyz>0 1 0</xyz>
+         </axis>
+      </joint>
+      
+
+
+      <link name='arm3'>
+            <pose>0 0.323 0.78 0 1.6 0</pose>
+
+            <collision name='collision'>
+              <geometry>
+                <box>
+                  <size>.2 .05 .05</size>
+                </box>
+              </geometry>
+            </collision>
+
+            <visual name='visual'>
+              <geometry>
+                <box>
+                  <size>.2 .05 .05</size>
+                </box>
+              </geometry>
+            </visual>
+          </link>
+
+
+      
+       <joint type="revolute" name="arm3_hinge">
+         <pose>0.1 -0.02 0 0 0 0</pose>
+         <child>arm3</child>
+         <parent>chassis</parent>
+         <axis>
+          <xyz>0 1 0</xyz>
+         </axis>
+      </joint>
+
+      
+
+
+       <link name='arm4'>
+            <pose>0.15 0.375 0.85 0 0 0</pose>
+
+            <collision name='collision'>
+              <geometry>
+                <box>
+                  <size>.3 .05 .05</size>
+                </box>
+              </geometry>
+            </collision>
+
+            <visual name='visual'>
+              <geometry>
+                <box>
+                  <size>.3 .05 .05</size>
+                </box>
+              </geometry>
+            </visual>
+          </link>
+
+
+        
+       <joint type="revolute" name="arm4_hinge">
+         <pose>-0.15 0 0 0 0 0</pose>
+         <child>arm4</child>
+         <parent>chassis</parent>
+         <axis>
+          <xyz>0 1 0</xyz>
+         </axis>
+      </joint>
+
+
+
+
+
+      <link name='arm5'>
+            <pose>0.35 0.425 0.85 0 0 0</pose>
+
+            <collision name='collision'>
+              <geometry>
+                <box>
+                  <size>.2 .05 .05</size>
+                </box>
+              </geometry>
+            </collision>
+
+            <visual name='visual'>
+              <geometry>
+                <box>
+                  <size>.2 .05 .05</size>
+                </box>
+              </geometry>
+            </visual>
+          </link>
+
+
+
+       <joint type="revolute" name="arm5_hinge">
+         <pose>-0.1 0 0 0 0 0</pose>
+         <child>arm5</child>
+         <parent>chassis</parent>
+         <axis>
+          <xyz>0 1 0</xyz>
+         </axis>
+      </joint>
+
+
+
+
+
+        <link name='endeffector'>
+            <pose>0.480 0.425 0.85 0 0 0</pose>
+
+            <collision name='collision'>
+              <geometry>
+                <box>
+                  <size>.06 .01 .01</size>
+                </box>
+              </geometry>
+            </collision>
+
+            <visual name='visual'>
+              <geometry>
+                <box>
+                  <size>.06 .01 .01</size>
+                </box>
+              </geometry>
+            </visual>
+          </link>
+
+
+
+         <joint type="fixed" name="endeffector_hinge">
+         <pose> -0.03 0 0 0 0 0</pose>
+         <child>endeffector</child>
+         <parent>chassis</parent>
+         <axis>
+          <xyz>0 1 0</xyz>
+         </axis>
+      </joint>
+   
+
+
+
+
+
+     
+
+  </model>
+</sdf>
