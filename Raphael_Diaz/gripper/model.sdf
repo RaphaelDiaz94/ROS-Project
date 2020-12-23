@@ -1,0 +1,154 @@
+<?xml version='1.0'?>
+<sdf version='1.4'>
+  <model name="pince">
+    <link name='corps'>
+            <pose>0 0 0.1 0 0 0</pose>
+            <collision name='collision'>
+              <geometry>
+                <box>
+                  <size>.1 .05 .02</size>
+                </box>
+              </geometry>
+            </collision>
+
+            <visual name='visual'>
+              <geometry>
+                <box>
+                  <size>.1 .05 .02</size>
+                </box>
+              </geometry>
+            </visual>
+     </link>
+
+     <link name='pincedroite'>
+            <pose>-0.040 0 0.12 0 1.55 0</pose>
+            <collision name='collision'>
+              <geometry>
+                <box>
+                  <size>.02 .02 .01</size>
+                </box>
+              </geometry>
+            </collision>
+
+            <visual name='pincedroite'>
+              <geometry>
+                <box>
+                  <size>.02 .02 .01</size>
+                </box>
+              </geometry>
+            </visual>
+       </link>
+       <joint type="prismatic" name="corps+pincedroite">
+        <pose>0.008 -0.010 0 0 0 0</pose>
+        <child>pincedroite</child>
+        <parent>corps</parent>
+        <axis>
+          <xyz>1 0 0</xyz>
+        </axis>
+        <limit effort="0" lower="0" upper="0" velocity="5"/>
+      </joint>
+
+      <link name='pincegauche'>
+            <pose>0.040 0 0.12 0 1.55 0</pose>
+            <collision name='collision'>
+              <geometry>
+                <box>
+                  <size>.02 .02 .01</size>
+                </box>
+              </geometry>
+            </collision>
+
+            <visual name='pincegauche'>
+              <geometry>
+                <box>
+                  <size>.02 .02 .01</size>
+                </box>
+              </geometry>
+            </visual>
+       </link>
+       <joint type="prismatic" name="corps+pincegauche">
+        <pose>0.008 -0.010 0 0 0 0</pose>
+        <child>pincegauche</child>
+        <parent>corps</parent>
+        <axis>
+          <xyz>1 0 0</xyz>
+        </axis>
+        <limit effort="0" lower="0" upper="0" velocity="0"/>
+        <inertial>
+            <mass value="0.2" />
+            <origin rpy="0 0 0" xyz="0.008 -0.010 0 " />
+            <inertia ixx="${ixx}" ixy="${ixy}" ixz="${ixz}" iyy="${iyy}" iyz="${iyz}" izz="${izz}" />
+        </inertial>
+      </joint>   
+
+
+
+
+      <link name='grippergauche'>
+            <pose>0.032 0 0.134 0 1.55 0</pose>
+            <collision name='collision'>
+              <geometry>
+                <box>
+                  <size>.01 .03 .005</size>
+                </box>
+              </geometry>
+            </collision>
+
+            <visual name='grippergauche'>
+              <geometry>
+                <box>
+                  <size>.01 .03 .005</size>
+                </box>
+              </geometry>
+            </visual>
+       </link>
+       <joint type="revolute" name="grippergauche+pincegauche">
+        <pose>0.005 0 0 0 0 0</pose>
+        <child>grippergauche</child>
+        <parent>pincegauche</parent>
+        <axis>
+          <xyz>0 1 0</xyz>
+        </axis>
+        <limit effort="10" lower="0" upper="10" velocity="100"/>
+      </joint>
+
+    
+
+       <link name='gripperdroite'>
+            <pose>-0.032 0 0.134 0 1.55 0</pose>
+            <collision name='collision'>
+              <geometry>
+                <box>
+                  <size>.01 .03 .005</size>
+                </box>
+              </geometry>
+            </collision>
+
+            <visual name='gripperdroite'>
+              <geometry>
+                <box>
+                  <size>.01 .03 .005</size>
+                </box>
+              </geometry>
+            </visual>
+       </link>
+       <joint type="revolute" name="gripperdroite+pincedroite">
+        <pose>0.005 0 0 0 0 0</pose>
+        <child>gripperdroite</child>
+        <parent>pincedroite</parent>
+        <axis>
+          <xyz>0 1 0</xyz>
+        </axis>
+        <limit effort="10" lower="0" upper="10" velocity="100"/>
+      </joint>
+
+
+
+
+   
+
+
+  </model>
+</sdf>
+
+
